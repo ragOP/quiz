@@ -24,6 +24,54 @@ const reviews = [
   { author: "Melanie C.", avatar: `${ASSETS}/woman_4-gfTYNniC.jpg`, text: "8-Wochen-Update: insgesamt 11 kg weniger!!! 😱 Hätte ich nie gedacht. Das Beste: Ich musste mich nicht einmal einschränken. Altuva ist absolut sein Geld wert!", likes: 634, time: "vor 10 Min." },
 ];
 
+const LOGO_SVG = "data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20id='Layer_1'%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202048%20505.76'%3e%3cpath%20d='M188.21,42.4h104.2l169.42,439.38h-96.54l-31.33-85.33h-189.87l-30.69,85.33H18.15L188.21,42.4ZM303.93,315.59l-64.57-176.39-65.21,176.39h129.78Z'/%3e%3cpath%20d='M458.63,415.56c21.1-8.91,40.92-19.74,58.81-33.12-33.88-49.67-53.06-115.89-53.06-190.4,0-113.35,51.15-176.39,127.86-176.39s121.47,57.31,121.47,155.38c0,76.41-28.77,151.55-78.63,210.14,20.46,13.37,43.48,20.38,69.05,20.38h19.82v80.23h-24.29c-49.23,0-92.7-15.29-128.51-42.03-24.29,17.19-51.14,31.84-80.55,42.03l-31.97-66.22ZM580.11,318.77c30.68-43.3,47.94-94.24,47.94-147.73,0-49.04-14.06-75.15-37.08-75.15-24.93,0-40.92,28.66-40.92,90.42,0,50.31,10.87,96.16,30.05,132.45Z'/%3e%3cpath%20d='M787.22,379.27v-146.46h-51.78v-75.78h29.41c17.26,0,26.85-8.91,26.85-26.11v-60.49h78.64v86.6h75.44v75.78h-75.44v132.45c0,25.47,15.98,40.75,42.83,40.75h32.61v75.78h-44.75c-74.8,0-113.8-35.66-113.8-102.52Z'/%3e%3cpath%20d='M983.47,365.26v-208.23h83.12v184.03c0,41.39,26.85,68.14,67.12,68.14,42.84,0,71.61-27.38,71.61-69.41v-182.75h83.11v217.14c0,17.19,10.22,27.38,27.49,27.38h6.39v80.23h-23.66c-43.47,0-72.24-15.29-85.66-45.21-24.94,34.38-61.37,52.85-106.77,52.85-73.52,0-122.75-49.03-122.75-124.17Z'/%3e%3cpath%20d='M1312.71,157.03h94.62l84.39,222.24,40.28-100.61c17.9-49.03,25.57-87.88,18.54-121.63h85.03c7.67,36.94,0,82.78-23.66,138.82l-78,185.94h-86.31l-134.9-324.76Z'/%3e%3cpath%20d='M1647.7,319.41c0-96.8,68.41-170.03,159.19-170.03,43.48,0,79.92,17.2,106.13,45.85v-38.2h83.11v217.14c0,17.19,9.6,27.38,27.49,27.38h6.4v80.23h-23.66c-44.75,0-73.52-15.92-86.31-47.13-26.22,33.75-65.85,54.76-113.16,54.76-90.78,0-159.19-73.23-159.19-170.02ZM1913.02,319.41c0-50.95-38.36-89.79-90.14-89.79s-89.51,38.84-89.51,89.79,38.36,89.79,89.51,89.79,90.14-38.84,90.14-89.79Z'/%3e%3c/svg%3e";
+
+const PACK_IMAGES = [
+  `${ASSETS}/altuva-render-H9K1E0Rh.png`,
+  "https://assets.nutriveno.com/original/altuva/products/altuva_2_sub_1778550030254.webp",
+  "https://assets.nutriveno.com/original/altuva/products/altuva_3_sub_1778550030424.webp",
+  "https://assets.nutriveno.com/original/altuva/products/altuva_4_sub_1778550030630.webp",
+];
+
+const PRICING = {
+  subscribe: [
+    { packs: 4, patches: 120, was: 199.96, now: 59.96, perPack: 14.99, discount: 70, popular: true },
+    { packs: 3, patches: 90, was: 149.97, now: 53.97, perPack: 17.99, discount: 64 },
+    { packs: 2, patches: 60, was: 99.98, now: 49.98, perPack: 24.99, discount: 50 },
+    { packs: 1, patches: 30, was: 49.99, now: 29.99, perPack: 29.99, discount: 40 },
+  ],
+  oneTime: [
+    { packs: 4, patches: 120, was: 199.96, now: 99.96, perPack: 24.99, discount: 50, popular: true },
+    { packs: 3, patches: 90, was: 149.97, now: 89.97, perPack: 29.99, discount: 40 },
+    { packs: 2, patches: 60, was: 99.98, now: 69.98, perPack: 34.99, discount: 30 },
+    { packs: 1, patches: 30, was: 49.99, now: 49.99, perPack: 49.99, discount: 0 },
+  ],
+};
+
+const FUNNEL = {
+  headline: "Vergiss den Heißhunger…",
+  scratchCta: "HIER KRATZEN",
+  discountIntro: "Du erhältst",
+  discountPrimary: "50 % RABATT",
+  discountSecondary: "+ zusätzliche 10 % Rabatt!",
+  claimDiscount: "RABATT SICHERN",
+  emailDiscountPrimary: "Hol dir 50 % RABATT",
+  emailDiscountSecondary: "+ zusätzliche 10 % Rabatt!",
+  stickItForget: "Aufkleben, vergessen, fertig.",
+  emailPlaceholder: "Deine E-Mail-Adresse",
+  emailButton: "WEITER",
+  maybeLater: "Vielleicht später",
+  phoneDiscountPrimary: "Du hast zusätzliche 10 % Rabatt",
+  phonePlaceholder: "Deine Telefonnummer",
+  phoneButton: "WEITER",
+  privacyNote: "Mit deiner Eingabe stimmst du Marketing-Nachrichten zu. Zustimmung ist freiwillig und keine Kaufvoraussetzung.",
+  finalTitle: "ziel: aktiviert",
+  finalBody: "Hier sind zusätzliche 10 % Rabatt auf deine erste Bestellung. Aufkleben, vergessen, fertig.",
+  codeLabel: "CODE",
+  finalButton: "JETZT PFLASTER SICHERN",
+  promoCode: "ALTV10",
+};
+
 const state = {
   step: 1,
   answers: {},
@@ -31,6 +79,11 @@ const state = {
   weight: 80,
   target: 65,
   resultsTimer: null,
+  pricingMode: "subscribe",
+  pricingPack: 0,
+  funnelStep: 0,
+  exitShown: false,
+  funnelShown: false,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -340,6 +393,267 @@ function startResultsTimer() {
   state.resultsTimer = setInterval(update, 1000);
 }
 
+function euro(n) {
+  return `${n.toFixed(2).replace(".", ",")} €`;
+}
+
+function packLabel(n) {
+  return n === 1 ? "1 Packung" : `${n} Packungen`;
+}
+
+function renderPricingSection() {
+  const plans = PRICING[state.pricingMode];
+  const selected = state.pricingPack;
+  return `
+    <section class="results-section" id="pricing-section">
+      <h2 class="pricing-heading">Ihre persönliche Produktempfehlung</h2>
+      <p class="pricing-sub">Wählen Sie Ihr Paket</p>
+      <div class="pricing-mode-toggle">
+        <button type="button" class="mode-btn ${state.pricingMode === "subscribe" ? "active" : ""}" data-mode="subscribe">
+          <span class="radio-dot"></span> Abonnieren &amp; Sparen
+          <span class="save-badge">bis zu 70%</span>
+        </button>
+        <button type="button" class="mode-btn ${state.pricingMode === "oneTime" ? "active" : ""}" data-mode="oneTime">
+          <span class="radio-dot"></span> Einmalig kaufen
+        </button>
+      </div>
+      <div class="pack-grid">
+        ${plans.map((plan, i) => `
+          <button type="button" class="pack-card ${i === selected ? "selected" : ""}" data-pack="${i}">
+            ${plan.popular ? '<span class="pack-popular">AM BELIEBTESTEN</span>' : ""}
+            <span class="pack-radio"></span>
+            <div class="pack-info">
+              <div class="pack-title">${packLabel(plan.packs)}</div>
+              <div class="pack-patches">${plan.patches} Pflaster</div>
+              <img class="pack-img" src="${PACK_IMAGES[plan.packs - 1] || PACK_IMAGES[0]}" alt="" loading="lazy" />
+              <div class="pack-price">${euro(plan.perPack)}</div>
+              <div class="pack-per">pro Packung</div>
+              ${plan.discount > 0 ? `<span class="pack-discount">−${plan.discount}%</span>` : ""}
+              <div class="pack-total">Gesamtpreis: ${plan.was !== plan.now ? `<s>${euro(plan.was)}</s> ` : ""}<strong>${euro(plan.now)}</strong></div>
+            </div>
+          </button>`).join("")}
+      </div>
+      <button type="button" class="cta-button cta-order" data-cta="order">🛒 Jetzt bestellen — ${euro(plans[selected].now)}</button>
+      <p class="low-stock-sm">Nur noch 23 Packungen!</p>
+      <div class="pricing-trust-row">
+        <span>🚚 Gratis ab 49,99 €</span>
+        <span>🛡️ 60 Tage Rückgabe</span>
+        <span>🔒 Sichere Zahlung</span>
+      </div>
+    </section>`;
+}
+
+function bindPricingEvents() {
+  document.querySelectorAll(".mode-btn").forEach((btn) => {
+    btn.onclick = () => {
+      state.pricingMode = btn.dataset.mode;
+      state.pricingPack = 0;
+      const section = $("pricing-section");
+      if (section) {
+        section.outerHTML = renderPricingSection();
+        bindPricingEvents();
+        bindCtaButtons();
+      }
+    };
+  });
+  document.querySelectorAll(".pack-card").forEach((card) => {
+    card.onclick = () => {
+      state.pricingPack = Number(card.dataset.pack);
+      document.querySelectorAll(".pack-card").forEach((c) => c.classList.remove("selected"));
+      card.classList.add("selected");
+      const orderBtn = document.querySelector(".cta-order");
+      const plan = PRICING[state.pricingMode][state.pricingPack];
+      if (orderBtn) orderBtn.textContent = `🛒 Jetzt bestellen — ${euro(plan.now)}`;
+    };
+  });
+}
+
+function openModal(content) {
+  $("modal-root").innerHTML = `<div class="modal-overlay animate-fade-in" id="modal-overlay">
+    <div class="modal-card animate-scale-in" id="modal-card">${content}</div>
+  </div>`;
+  $("modal-overlay").onclick = (e) => {
+    if (e.target.id === "modal-overlay") closeModal();
+  };
+}
+
+function closeModal() {
+  const root = $("modal-root");
+  if (root) root.innerHTML = "";
+}
+
+function openExitModal() {
+  if (state.exitShown) return;
+  state.exitShown = true;
+  openModal(`
+    <button type="button" class="modal-close" id="modal-close">✕</button>
+    <div class="exit-header">
+      <div class="exit-icon">⏰</div>
+      <h3>Moment — Ihr persönlicher Plan ist bereit!</h3>
+    </div>
+    <div class="exit-body">
+      <p>Sie haben gerade Ihren <strong class="text-accent">persönlichen Abnehmplan</strong> erhalten. Wirklich zurücklassen?</p>
+      <div class="exit-highlight">
+        <p>⏰ Dieser Plan ist <strong>nur für kurze Zeit</strong> verfügbar</p>
+        <p class="exit-bold">Der Vorrat geht zur Neige!</p>
+        <p class="exit-small">Über 76.000 zufriedene Kunden haben nicht gewartet – Sie sollten es auch nicht!</p>
+      </div>
+      <button type="button" class="cta-button" id="exit-accept">✅ Ja, ich sichere mir meinen Plan!</button>
+      <button type="button" class="modal-secondary" id="exit-decline">Nein danke, ich mache so weiter wie bisher</button>
+    </div>`);
+  $("modal-close").onclick = closeModal;
+  $("exit-decline").onclick = closeModal;
+  $("exit-accept").onclick = () => { closeModal(); openDiscountFunnel(); };
+}
+
+function renderFunnelStep(step) {
+  const f = FUNNEL;
+  if (step === 0) {
+    return `
+      <button type="button" class="modal-close" id="modal-close">✕</button>
+      <h3 class="funnel-headline">${f.headline}</h3>
+      <div class="scratch-wrap" id="scratch-wrap">
+        <div class="scratch-reveal">
+          <p class="scratch-intro">${f.discountIntro}</p>
+          <p class="scratch-primary">${f.discountPrimary}</p>
+          <p class="scratch-secondary">${f.discountSecondary}</p>
+        </div>
+        <canvas class="scratch-canvas" id="scratch-canvas" width="320" height="180"></canvas>
+        <p class="scratch-hint" id="scratch-hint">${f.scratchCta}</p>
+      </div>`;
+  }
+  if (step === 1) {
+    return `
+      <button type="button" class="modal-close" id="modal-close">✕</button>
+      <div class="funnel-discount-box">
+        <p>${f.discountIntro}</p>
+        <p class="scratch-primary">${f.discountPrimary}</p>
+        <p class="scratch-secondary">${f.discountSecondary}</p>
+      </div>
+      <button type="button" class="cta-button" id="funnel-next">${f.claimDiscount}</button>
+      <button type="button" class="modal-secondary" id="funnel-later">${f.maybeLater}</button>`;
+  }
+  if (step === 2) {
+    return `
+      <button type="button" class="modal-close" id="modal-close">✕</button>
+      <p class="funnel-email-title">${f.emailDiscountPrimary}</p>
+      <p class="funnel-email-sub">${f.emailDiscountSecondary}</p>
+      <p class="funnel-stick">${f.stickItForget}</p>
+      <input type="email" class="funnel-input" id="funnel-email" placeholder="${f.emailPlaceholder}" />
+      <button type="button" class="cta-button" id="funnel-next">${f.emailButton}</button>
+      <button type="button" class="modal-secondary" id="funnel-later">${f.maybeLater}</button>
+      <p class="funnel-privacy">${f.privacyNote}</p>`;
+  }
+  if (step === 3) {
+    return `
+      <button type="button" class="modal-close" id="modal-close">✕</button>
+      <p class="funnel-email-title">${f.phoneDiscountPrimary}</p>
+      <input type="tel" class="funnel-input" id="funnel-phone" placeholder="${f.phonePlaceholder}" />
+      <button type="button" class="cta-button" id="funnel-next">${f.phoneButton}</button>
+      <button type="button" class="modal-secondary" id="funnel-later">${f.maybeLater}</button>
+      <p class="funnel-privacy">${f.privacyNote}</p>`;
+  }
+  return `
+    <button type="button" class="modal-close" id="modal-close">✕</button>
+    <p class="funnel-final-title">${f.finalTitle}</p>
+    <p class="funnel-final-body">${f.finalBody}</p>
+    <div class="promo-code"><span>${f.codeLabel}</span><strong>${f.promoCode}</strong></div>
+    <button type="button" class="cta-button" id="funnel-next">${f.finalButton}</button>`;
+}
+
+function initScratchCanvas() {
+  const canvas = $("scratch-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width;
+  const h = canvas.height;
+  const grad = ctx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, "#f2cd6e");
+  grad.addColorStop(0.5, "#d5a834");
+  grad.addColorStop(1, "#e6bf6b");
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = "rgba(255,255,255,0.15)";
+  for (let i = 0; i < 20; i++) ctx.fillRect(i * 18, 0, 8, h);
+  ctx.globalCompositeOperation = "destination-out";
+  let scratched = 0;
+  const scratch = (x, y) => {
+    ctx.beginPath();
+    ctx.arc(x, y, 22, 0, Math.PI * 2);
+    ctx.fill();
+    scratched += 1;
+    if (scratched > 12) revealScratch();
+  };
+  const revealScratch = () => {
+    canvas.style.opacity = "0";
+    $("scratch-hint").style.display = "none";
+    setTimeout(() => { state.funnelStep = 1; showFunnelStep(); }, 400);
+  };
+  canvas.onpointerdown = (e) => {
+    const r = canvas.getBoundingClientRect();
+    scratch(e.clientX - r.left, e.clientY - r.top);
+  };
+  canvas.onpointermove = (e) => {
+    if (e.buttons) {
+      const r = canvas.getBoundingClientRect();
+      scratch(e.clientX - r.left, e.clientY - r.top);
+    }
+  };
+  $("scratch-hint").onclick = revealScratch;
+}
+
+function showFunnelStep() {
+  openModal(renderFunnelStep(state.funnelStep));
+  const close = $("modal-close");
+  if (close) close.onclick = closeModal;
+  const later = $("funnel-later");
+  if (later) later.onclick = closeModal;
+  const next = $("funnel-next");
+  if (state.funnelStep === 0) {
+    setTimeout(initScratchCanvas, 50);
+  } else if (next) {
+    next.onclick = () => {
+      if (state.funnelStep === 2) {
+        const email = $("funnel-email")?.value?.trim();
+        if (!email || !email.includes("@")) { $("funnel-email")?.focus(); return; }
+      }
+      if (state.funnelStep === 3) {
+        const phone = $("funnel-phone")?.value?.trim();
+        if (!phone || phone.length < 6) { $("funnel-phone")?.focus(); return; }
+      }
+      if (state.funnelStep >= 4) { closeModal(); return; }
+      state.funnelStep += 1;
+      showFunnelStep();
+    };
+  }
+}
+
+function openDiscountFunnel() {
+  state.funnelStep = 0;
+  showFunnelStep();
+}
+
+function bindCtaButtons() {
+  document.querySelectorAll("[data-cta]").forEach((btn) => {
+    btn.onclick = () => openDiscountFunnel();
+  });
+}
+
+function setupExitIntent() {
+  document.addEventListener("mouseleave", (e) => {
+    if (e.clientY <= 0 && state.step === "results") openExitModal();
+  });
+}
+
+function initLogo() {
+  const img = $("logo-img");
+  if (img) {
+    img.src = LOGO_SVG;
+    img.onload = () => { img.style.display = "block"; document.querySelector(".fallback-logo").style.display = "none"; };
+    img.onerror = () => { img.style.display = "none"; };
+  }
+}
+
 function showResults() {
   $("trust-section").classList.add("hidden");
   $("testimonial").classList.add("hidden");
@@ -355,7 +669,7 @@ function showResults() {
       <section class="results-section tight-top">
         <div class="urgency-bar">
           <div class="urgency-stats">
-            <div class="urgency-stat"><span class="urgency-icon">🕐</span><span class="urgency-value" id="urgency-timer">14:59</span></div>
+            <div class="urgency-stat"><span class="urgency-icon pulse">🕐</span><span class="urgency-value" id="urgency-timer">14:59</span></div>
             <div class="urgency-stat"><span class="urgency-icon">👁</span><span class="urgency-value">35 <span style="font-size:.625rem;font-weight:400;opacity:.8">👀</span></span></div>
             <div class="urgency-stat"><span class="urgency-icon">📦</span><span class="urgency-value">23 <span style="font-size:.625rem;font-weight:400;opacity:.8">📦</span></span></div>
           </div>
@@ -418,17 +732,7 @@ function showResults() {
         <div class="study-card"><p>Klinische Studien zum Altuva-Pflaster zeigten, dass 8 von 10 Anwendern durchschnittlich 8 kg pro Monat verloren. 99 % der Teilnehmer bestätigten zudem eine deutliche Beschleunigung der Fettverbrennung.</p></div>
       </section>
 
-      <section class="results-section">
-        <div class="pricing-card">
-          <div class="guarantee-row">🛡️ 60 Tage Geld-zurück-Garantie</div>
-          <img class="product-img" src="${ASSETS}/altuva-render-H9K1E0Rh.png" alt="Altuva" loading="lazy" />
-          <div class="price-was">49,99 €</div>
-          <div class="price-now">29,99 €</div>
-          <div class="price-discount">−40% — Nur noch 23 Packungen!</div>
-          <button type="button" class="cta-button">🛒 Jetzt bestellen</button>
-          <p class="low-stock-sm">Nur noch 23 Packungen!</p>
-        </div>
-      </section>
+      ${renderPricingSection()}
 
       <section class="results-section">
         <div class="reviews-header">
@@ -452,7 +756,7 @@ function showResults() {
       </section>
 
       <section class="final-cta-section">
-        <button type="button" class="cta-button">🛒 Sichern Sie sich jetzt 70% Rabatt</button>
+        <button type="button" class="cta-button" data-cta="final">🛒 Sichern Sie sich jetzt 70% Rabatt</button>
         <div class="trust-footer">
           <p class="urgent">⏰ Angebot endet in <span id="offer-timer">14:59</span> — nur 23 Packungen übrig</p>
           <p>🔒 Ihre Daten sind 100% sicher und werden nicht weitergegeben.</p>
@@ -466,6 +770,13 @@ function showResults() {
     </div>`;
 
   startResultsTimer();
+  bindPricingEvents();
+  bindCtaButtons();
+  setupExitIntent();
+  if (!state.funnelShown) {
+    state.funnelShown = true;
+    setTimeout(() => openDiscountFunnel(), 2000);
+  }
   window.scrollTo(0, 0);
 }
 
@@ -505,4 +816,5 @@ window.addEventListener("popstate", (e) => {
 const initial = getQueryParam();
 state.step = initial;
 history.replaceState({ step: initial }, "", window.location.href);
+initLogo();
 renderStep();
